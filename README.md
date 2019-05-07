@@ -4,7 +4,7 @@ Ekstrakcija podatkov iz spletnih strani s pomočjo regularnih izrazov, x-patha i
 
 
 # Navodila za uporabo RoadRunner-like algoritma:
-0.) Namesti knjiznico bs4¸ 
+0.) Namesti knjiznico bs4  
 1.) Prenesi repozitorij  
 2.) Premakni se v direktorij "implementation"  
 3.) Za izvedbo algoritma nad rtvslo.si stranmi kliči: "test_runner.py ../input/volvox.html ../input/audix.html"  
