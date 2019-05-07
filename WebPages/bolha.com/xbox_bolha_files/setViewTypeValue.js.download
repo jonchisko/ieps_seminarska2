@@ -1,0 +1,19 @@
+$(function () {
+	var allowCookies = readCookieValue("bolha:allow_cookies");
+	var domain = document.location.hostname.split(".");
+	var host = "bolha." + domain[domain.length - 1];
+	
+	$("#gridType a").click(function(e) { setViewTypeValue("grid"); });
+	$("#listType a").click(function(e) { setViewTypeValue("list"); });
+
+	function setViewTypeValue(type) {
+		if (allowCookies == "all" 
+			|| allowCookies == "action" 
+			|| allowCookies == "track" 
+			|| allowCookies == "social"
+			|| allowCookies == "undecided"
+			|| allowCookies == "firstparty") {
+			createCookieValue("bolha:view_type", type, 7776000, host, "/", false);
+		}
+	}
+});

@@ -1,0 +1,677 @@
+#list {
+	position: relative;
+	-webkit-border-radius: 10px 10px 10px 10px !important;
+  	-moz-border-radius: 10px 10px 10px 10px !important;
+  	border-radius: 10px 10px 10px 10px !important;
+  	/*margin-top: 38px;*/
+  	padding-top: 46px;
+}
+
+#sellerTypeSelector {
+	position: absolute;
+	top: -38px; left: 0;
+	height: 37px;
+}
+
+#sellerTypeSelector ul li {
+	position: relative; 
+	float: left; 
+	margin-right: -10px;
+}
+
+#sellerTypeSelector ul li a {
+	font: bold 16px/37px Arial;
+	color: #333;
+	width: 160px;
+	display: block;
+	-webkit-border-radius: 10px 10px 0 0;
+  	-moz-border-radius: 10px 10px 0 0;
+  	border-radius: 10px 10px 0 0;
+  	border: 1px solid #E3E3E3;
+  	border-bottom: none;
+  	text-decoration: none;
+  	text-align: center;
+  	border-bottom: 1px solid #e3e3e3;
+}
+
+#sellerTypeSelector ul li.tab1 { z-index: 90; }
+#sellerTypeSelector ul li.tab2 { z-index: 89; }
+#sellerTypeSelector ul li.tab3 { z-index: 88; }
+
+#sellerTypeSelector ul li a:hover {
+	background-position: 0 -305px;
+}
+#sellerTypeSelector ul li a.active,
+#sellerTypeSelector ul li a.active:hover {
+	background: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+#sellerTypeSelector ul li a span {
+	font-weight: normal;
+	font-size: 10px;
+	display: none;
+}
+
+.allItemCount {
+	position: absolute;
+	top: -38px; right: 15px;
+	font: normal 12px/40px Arial;
+}
+
+.allItemCountSearch {
+	position: absolute;
+	top: -50px; right: 15px;
+	font: normal 12px/40px Arial;
+}
+
+.unomittedSearch {
+	position: absolute;
+	top: -31px; right: 15px;
+	font: normal 12px/40px Arial;
+}
+
+#listHeader {
+	position: absolute;
+	top: -38px; 
+	left: 0;
+	height: 37px;
+	width: auto;
+}
+
+#listHeader .tab {
+	position: relative;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	border: 1px solid #E3E3E3;
+	text-decoration: none;
+	padding: 0 15px;
+	display: inline-block;
+}
+
+#listHeader h2 {
+	font: bold 16px/37px Arial;
+	color: #333;
+	float: left;
+}
+
+#listHeader .listSearch {
+	float: right;
+	margin-left: 32px;
+	line-height: 37px;
+}
+
+
+#listHeader .listSearch input.searchInput {
+	border: 1px solid #929292;
+	border-right: none;
+	margin-top: 7px;
+	height: 22px;
+	width: 180px;
+	line-height: 22px;
+	padding: 0 5px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	-moz-border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
+	float: left;	
+}
+
+#listHeader .listSearch input.searchButton {
+	height: 24px;
+	width: 30px;
+	padding: 0 2px;
+	margin-top: 7px;
+	/*display: block;*/
+	-webkit-border-radius: 0px 3px 3px 0px;
+	-moz-border-radius: 0px 3px 3px 0px;
+	border-radius: 0px 3px 3px 0px;
+	border: 1px solid #929292;
+	float: left;
+}
+
+#listHeader h1 {
+	font: bold 16px/37px Arial;
+	color: #333;
+	-webkit-border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+	border: 1px solid #E3E3E3;
+	text-decoration: none;
+	padding: 0 15px;
+}
+
+
+#toolBox-top {
+	position: absolute;
+	top:0; left: 0;
+	display: block;
+	width: 676px;
+	height: 46px;
+}
+
+#toolBox-top .viewType {
+	margin: 5px 10px 0 0;
+}
+
+#toolBox-top .viewType ul li {
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 8px;
+}
+
+#toolBox-top .viewType ul li a { padding-left: 12px; }
+#toolBox-top .viewType ul li a:hover { color: transparent; }
+
+#toolBox-top .toolbox .viewType ul li.listType { background-position: 0 -801px;}
+#toolBox-top .toolbox .viewType ul li.listType:hover { background-position: 0 -821px;}
+#toolBox-top .toolbox .viewType ul li.currentList { background-position: 0 -821px;}
+
+#toolBox-top .toolbox .viewType ul li.gridType { background-position: 0 -841px;}
+#toolBox-top .toolbox .viewType ul li.gridType:hover { background-position: 0 -861px;}
+#toolBox-top .toolbox .viewType ul li.currentGrid { background-position: 0 -861px;}
+
+
+#list h2 {
+	font: bold 16px/37px Arial;
+	padding: 0 15px;
+	padding-top: 15px;
+	border-bottom: 1px solid #e3e3e3;
+}
+#list .commercialAds {
+	/*margin-bottom: 15px;*/
+}
+#list .ad {
+	padding: 15px 9px 12px 9px;
+	border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+
+#list .bannerWrapper {
+	padding: 6px 0;
+}
+
+#list .banner {
+	width: 600px;
+	margin: 6px auto;
+}
+
+#list .bannerAdSense {
+	padding-left: 15px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+#list .featured { background: #fcfbcc; }
+
+#topOffers .ad { background: #ffeaab; }
+#topAds .ad { background: #fcfbcc; }
+/*
+#topOffers .ad, #topAds .ad, #campaines .ad {
+	border-top: 1px solid #e3e3e3;
+	border-bottom: none;
+}
+*/
+#list .ad .image {
+	position: relative; 
+	width: 162px; 
+	height: 162px; 
+}
+#list .ad .image table tr td {
+	background: #fff;
+	border: 1px solid #e3e3e3;
+	vertical-align: middle !important;
+	text-align: center;
+	width: 160px; 
+	height: 160px; 
+}
+
+#list .ad .image a img { 
+	margin-bottom: -5px;
+	max-width: 156px;
+	max-height: 156px;
+}
+
+#list .ad .image span.flag_newAd {
+	position: absolute;
+	display: block;
+	width: 54px;
+	height: 53px;
+	top: -4px;
+	left: -5px;
+}
+
+#list .ad .image span.flag_reducePercentage {
+	position: absolute;
+	display: block;
+	width: 52px;
+	height: 52px;
+	top: 114px;
+	left: 114px;
+}
+
+#list .ad .image span img.flagPercentsTwo {
+	position: absolute;
+	top: 14px;
+	left: 14px;	
+}
+
+#list .ad .image span img.flagPercentsOne {
+	position: absolute;
+	top: 16px;
+	left: 17px;	
+}
+
+#list .ad .content { 
+	width: 268px; 
+	word-wrap: break-word;	
+}
+#list .ad .content h3 {
+	font-weight: normal;
+	margin-bottom: 12px;
+}
+
+#list .ad .content h3 a:visited {
+	color: #929292;
+}
+
+#list .ad .additionalInfo {
+	margin-top: 6px;
+	font-size: 11px;
+	line-height: 19px;
+}
+/*#list .ad .additionalInfo span {display: inline;}*/
+#list .ad .additionalInfo span.extraBadge a {
+	display: inline-block;
+	padding-left: 20px;
+}
+
+#list .ad .badges { width: 60px; text-align: center;}
+
+#list .ad .prices { width: 118px; text-align: right; }
+#list .ad .prices .price {
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+#list .ad .prices .oldPrice {
+	font-size: 13px;
+	text-decoration: line-through;
+}
+
+
+#list .ad .prices .price span { color: #CA0072; font-weight: bold; }
+
+#list .ad .miscellaneous {  
+	margin-top: 6px;
+	height: 28px;
+	line-height: 28px;
+	position: relative;
+	padding-left: 178px;
+	/*padding-right: 2px;*/
+}
+
+#list .ad .miscellaneous .moreInfo {
+	position: absolute;
+	top: 0;
+	left: 6px;
+}
+
+#list .ad .miscellaneous .Novoletna {
+	background-position: 0px -960px;
+	padding-left: 15px;	
+}
+
+#list .ad .miscellaneous .Izbrana {
+	background-position: 0px -1003px;
+	padding-left: 15px;	
+}
+
+
+/* shop list */
+
+#list .shop {
+	padding: 15px 9px 12px 9px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+#list .shop .image {
+	position: relative; 
+	width: 80px; 
+	height: 80px; 
+}
+#list .shop .image table tr td {
+	background: #fff;
+	border: 1px solid #e3e3e3;
+	vertical-align: middle !important;
+	text-align: center;
+	width: 78px; 
+	height: 78px;
+	
+	 
+}
+#list .shop .image table tr td span {
+	display: block;
+	padding: 5px;
+	color: #e3e3e3;
+	line-height: 14px;
+	font-size: 12px;
+	font-style: italic;
+}
+
+#list .shop .image a img { margin-bottom: -5px;}
+
+
+#list .shop .content { 
+	width: 422px; 
+	word-wrap: break-word;
+}
+#list .shop .content h3 {
+	font-weight: normal;
+	margin-bottom: 12px;
+}
+#list .shop .content span.publishDate {
+	display: block;
+	margin-top: 12px;
+	font-style: italic;
+	color: #999; 
+}
+#list .shop .miscellaneous { 
+	width: 120px; 
+	text-align: right;	
+}
+
+#list .shop .miscellaneous span.noAds {
+	font-weight: bold;
+	color: #CA0072; 
+	display: block;
+}
+
+
+
+#list .toolbox {
+	position: relative;
+	display: block;
+	height: 28px;
+	padding: 9px 15px;
+	border-bottom: 1px solid #ebebeb;
+}
+
+#list .pager {
+	line-height: 28px;
+	margin-top: 1px;
+}
+
+#list #ScrollToTop {
+	float: right;
+}
+
+#list .arrowToTop {
+	content: "";
+	position: relative;
+	width: 0;
+	top: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 7px solid #0E8EAB;
+	vertical-align: middle;
+	display: -moz-inline-box;
+	display: inline-block;
+}
+
+#list .pager span {
+	margin: 0 5px;
+}
+
+#list .pager a.back {
+	width: 29px;
+	height: 26px;
+	display: inline-block;
+	margin-right: 6px;
+}
+
+#list .pager a.forward {
+	width: 29px;
+	height: 26px;
+	display: inline-block;
+	margin-left: 6px;
+}
+
+.blur {
+	opacity: 0.25;
+	filter:alpha(opacity=25);
+	cursor: default;
+}
+
+#list .sortBox {
+	position: relative;
+	width: 180px;
+	margin-top: 1px;
+	height: 24px;
+	border: 1px solid #abadb3;
+}
+
+#list .sortBox label {
+	font: normal 11px/24px Arial;
+	padding: 0 10px;
+	display: block;
+}
+
+#list .sortBox .options {
+	position: absolute;
+	display: none;
+	top: 25px;
+	left: -1px;
+	background: #4e4e4e;
+	z-index: 100;
+	padding: 10px 0;
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
+	border-radius: 0 0 10px 10px;
+}
+
+#list .sortBox .options a {
+	display: block;
+	padding: 0 10px;
+	line-height: 21px;
+	width: 162px;
+	color: #fff;
+}
+
+#list .sortBox .options a.selected,
+#list .sortBox .options a:hover
+{
+	color: #FCD700;
+}
+
+
+
+
+#listFooter {
+	padding: 15px 0;
+}
+#listFooter .searchBox {
+  position: relative;
+  padding-left: 8px;
+  margin-top: 1px;
+}
+#listFooter a.publishAdd {
+	height: 36px;
+	line-height: 36px;
+}
+#listFooter .searchBox input.buttonYellow {
+	position: absolute;
+	top: 0;
+	right: 12px;
+	width: 80px;
+	height: 36px;
+}
+#listFooter #extendedSearchBoxOpen {display: none;}
+
+#list p.certifiedUserList {
+	margin: 3px 5px 0 0;
+	padding-left: 20px;
+	color: #888;
+	float: right;
+}
+
+#list div.saveAd {
+	display: block;
+	position: absolute;
+	right: 0;
+	text-align: right;
+}
+
+#list div.certifiedUserPosition {
+	top: -37px;
+}
+
+
+/* widget saved ads
+----------------------------------------------------*/
+
+#savedAds .frame {
+	position: relative;
+	display: block;
+	width: 216px;
+	height: 290px;
+	overflow: hidden;
+}
+
+	#savedAds .slider {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 290px;
+	}
+	
+	#savedAds .slider img[alt]{
+		color: #fff;
+	}
+	
+	#savedAds .slide {
+		float: left;
+		width: 216px;
+	}
+	
+	#savedAds .item {
+	 /* overflow: hidden;*/
+	  margin: 10px 0 0px 15px;
+	  display: block;
+	  height: 63px;
+	}
+	
+	#savedAds .slide .item a img {
+		max-width: 60px;
+		max-height: 60px;
+	}
+	
+	#savedAds .image {
+	  float: left;
+	  width: 80px;
+	  height: 60px;
+	}
+		#savedAds .image img {
+			max-width: 80px;
+			max-height: 60px;
+		}
+	
+	#savedAds .text {
+	  float: left;
+	  margin: 0 0 0 10px;
+	  font-size: 11px;
+	  width: 120px;
+	  overflow: hidden;
+	 /* word-wrap: break-word; */
+	  
+	}
+	
+		#savedAds .text p {
+			line-height: 15px;
+			color: #515151;
+		}
+		
+		#savedAds .text a {
+			color: #0e8eab;
+			display: block;
+			margin: 0;
+		  	padding: 0;
+		  	line-height: 14px;
+		}
+	
+	#savedAds .price p span {
+		color: #cb0776;
+		font-weight: bold;
+	}
+
+
+/* list bottom banners */
+#adListBottom {
+	width: 728px;
+	margin: 8px 6px 20px 0;
+	float: right;
+	/*padding: 8px 0 20px 0;*/
+}
+
+#adListBottomCubes {padding: 6px;}
+#adListBottomCubes .banners {
+	margin: 0 auto;
+}
+
+#adListBottomCubes .banner {
+	width: 300px;
+	height: 250px;
+	margin: 10px;
+}
+
+#adListBottomCubes div span.more {
+	display: inline-block;
+	padding-right: 20px;
+}
+	
+#adListBottomCubes div span.more:hover {
+	background-position: right -156px;
+}
+
+.afc {
+	padding: 12px;
+	text-align: center;
+	border-bottom: 1px solid #ebebeb;
+}
+
+/* jquery overwrite */
+.ui-dialog-buttonpane {
+	border-top: 1px solid #ebebeb !important;
+	margin-left: 13px !important;
+	margin-right: 13px !important;
+}
+
+.ad .upsell {
+	margin: 5px 0 5px 0;
+}
+
+/* fake ad */
+section#list div#fakeAdList {
+	border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+}
+
+/* LIST Kodeks Sign */
+#list div.kodeksSign {
+	float: right;
+	margin: -10px 0 0 0;
+}
+#list div.kodeksSign span {
+	width: 94px;
+}
+#list div.kodeksUserPosition {
+	top: -50px;
+}
+#list.gridListSection div.kodeksSign {
+	float: none;
+	margin: 14px 0;
+}
