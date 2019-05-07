@@ -1,0 +1,20 @@
+$(function(){
+	
+	$(".sortBox label").each(function(){
+		var element = $(this).parents(".sortBox");
+		var options = $(element).find(".options");
+		var timeout;
+		
+		$(this).on("click",function(){
+			clearTimeout(timeout);
+			$(options).slideToggle("fast",function(){
+				if ($(options).is(':visible')){
+					timeout = setTimeout(function(){
+						$(options).slideUp("fast");
+					},10000);
+				}
+			});
+		});
+		
+	});
+});

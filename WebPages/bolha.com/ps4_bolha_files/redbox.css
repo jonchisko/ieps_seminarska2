@@ -1,0 +1,190 @@
+#redbox {
+	padding: 3px 9px 8px 9px;
+	border-bottom: 1px solid #e3e3e3;
+	background: #e5e5e5;
+	position: relative;
+	display: none;
+	width: 658px;
+}
+
+div.redbox {
+	padding: 6px 0;
+}
+
+div.errorDisplay {
+	width: 99%;
+	margin-left: 18px; 
+	margin-top: 5px; 
+	color: #777;
+}
+
+div.redbox .redBoxInfo {
+	margin: 15px 6px 15px 6px;
+	display: block;
+}
+
+	div.redbox .redBoxInfo h5 {
+		font-size: 16px;
+		font-weight: normal;
+		color: #5b98b2;
+		padding: 0 0 5px 0;
+		border-bottom: 1px solid #ededed;
+	}
+	
+	div.redbox .redBoxInfo h5 span {
+		font-weight: bold;
+	}
+
+
+div.redbox .frame {
+	position: relative;
+	display: block;
+	width: 646px;
+	height: 200px;
+	overflow: hidden;
+	margin-left: 5px;
+}
+
+	div.redbox .slider {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	
+	div.redbox .slider .i0 {
+		margin: 0 6px 0 0;
+	}
+	
+	div.redbox .slider .i1 {
+		margin: 0 10px 0 10px;
+	}
+	
+	div.redbox .slider .i2 {
+		margin: 0 0 0 6px;
+	}
+
+	div.redbox .slider img[alt]{
+		color: #fff;
+	}
+
+	div.redbox .slide {
+		float: left;
+		width: 658px;
+	}
+
+	div.redbox .item {
+		/*margin: 6px;*/
+		display: block;
+		width: 207px;
+		float: left;
+	}
+
+	div.redbox .image {
+		width: 200px;
+		height: 150px;
+	}
+
+	div.redbox .RBBckImage {
+		width: 200px;
+		height: 150px;
+		background-repeat: no-repeat;
+		/*background-size: cover;*/
+		background-size: contain;
+		background-position: center center;
+		background-color: white;
+	}
+
+		div.redbox .image img {
+			max-width: 200px;
+			max-height: 150px;
+		}
+
+	div.redbox .text {
+		float: left;
+		margin: 8px 0 0 2px;
+		font-size: 12px;
+		width: 200px;
+		overflow: hidden;
+	}
+
+		div.redbox .text p {
+			line-height: 15px;
+			color: #515151;
+			display: inline-block;
+		}
+
+		div.redbox .text a {
+			color: #0e8eab;
+			display: block;
+			margin: 0;
+			padding: 0;
+			line-height: 14px;
+		}
+		
+		div.redbox .title a {
+			color: #444 !important;
+			font-size: 13px;
+			font-weight: bold;
+			display: block;
+			padding-bottom: 6px;
+		}
+
+	div.redbox .price p span {
+		color: #444;
+		font-size: 13px;
+		font-weight: bold;
+	}
+	
+div.redbox .footer {
+	border: none;
+	padding: 0 5px 0px 6px;
+	margin: 0;
+	line-height: 26px;
+}	
+
+div.redbox .pages {
+	display: inline-block;
+	
+}
+
+div.redbox .previous {
+	width: 29px;
+	height: 26px;
+	display: inline-block;
+	
+	position: absolute;
+	top: 150px;
+	left: 5px;
+	z-index: 100;
+}
+
+div.redbox .previous:hover {}
+
+div.redbox .next {
+	width: 29px;
+	height: 26px;
+	display: inline-block;
+	
+	position: absolute;
+	top: 150px;
+	left: 642px;
+	z-index: 100;
+}
+
+div.redbox .next:hover {
+	background-position: -32px -150px;
+}
+
+div.redbox .blur {
+	opacity: 0.25;
+	filter:alpha(opacity=25);
+	cursor: default;
+}
+
+#redbox .oldPrice p {
+	text-decoration: line-through;
+}
+
+#redbox .noAdPhoto {
+	margin: 24px 0 0 0;
+}

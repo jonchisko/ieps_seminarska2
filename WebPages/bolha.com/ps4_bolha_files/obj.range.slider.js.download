@@ -1,0 +1,322 @@
+function RangeSlider()
+{
+	this.min;
+	this.max;
+	this.elementID = "#rangeSlider";
+	this.field;
+	this.sliderWidth = 184;
+	this.values;
+	this.init = init;
+	this.extendedView = false;
+	this.rangeDelimiter = '|';
+	
+	function init(o)
+	{
+		
+		$( o.elementID ).rangeslider({
+			range: true,
+			min: o.min,
+			max: o.max,
+			values: o.values,
+			sliderWidth: o.sliderWidth,
+			slide: function( event, ui ) {
+				v=ui.values;
+				if (o.extendedView) {
+					$(o.elementID+'_afs_start').val(v[0]); 
+					$(o.elementID+'_afs_end').val(v[1]);
+					$("input#rangeSlider_values").val(v[0]+o.rangeDelimiter+v[1]);
+					$("input#rangeSlider_values").trigger("select");
+				} else {
+					$(o.elementID+'_start').html(formatNumber(v[0],0,',','.')); 
+					$(o.elementID+'_end').html(formatNumber(v[1],0,',','.'));
+					if (o.values[0] == v[0] && o.values[1] == v[1]){
+						if ($(o.elementID+'_reset') != 'undefined') $(o.elementID+'_reset').removeClass("hidden");
+						$(o.elementID+'_go').attr("data-values",v[0]+o.rangeDelimiter+v[1]).addClass("hidden");
+					} else {
+						if ($(o.elementID+'_reset') != 'undefined') $(o.elementID+'_reset').addClass("hidden");
+						$(o.elementID+'_go').attr("data-values",v[0]+o.rangeDelimiter+v[1]).removeClass("hidden");
+					}
+				}
+			}
+		});
+		
+		setEvents(o);
+	}
+	
+	function formatNumber(number, decimals, dec_point, thousands_sep) 
+	{
+	    var n = !isFinite(+number) ? 0 : +number, 
+	        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+	        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+	        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+	        s = '',
+	        toFixedFix = function (n, prec) {
+	            var k = Math.pow(10, prec);
+	            return '' + Math.round(n * k) / k;
+	        };
+	    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+	    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+	    if (s[0].length > 3) {
+	        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+	    }
+	    if ((s[1] || '').length < prec) {
+	        s[1] = s[1] || '';
+	        s[1] += new Array(prec - s[1].length + 1).join('0');
+	    }
+	    return s.join(dec);
+	}
+	
+	function setEvents(o)
+	{
+		$(o.elementID+'_go').live("click",function(e){
+			e.preventDefault();
+			var uri = $(this).attr('href');
+			var values = $(this).data('values');
+			
+			if (uri.indexOf("?") != -1){
+				uri+="&"+o.field+"="+values;
+			} else {
+				uri+="?"+o.field+"="+values;
+			}
+			
+			document.location.href = uri;
+		});
+		
+		$(o.elementID+'_afs_start').change(function(){
+			var start = $(this).val();
+			var currentValues = $( o.elementID ).rangeslider("values");
+			
+			if (isNaN(start)){
+				$(this).val(currentValues[0]);
+			} else {
+				end = currentValues[1];
+				$( o.elementID ).rangeslider("values",[start,end]);
+				
+				$("input#rangeSlider_values").val(start+o.rangeDelimiter+end);
+				$("input#rangeSlider_values").trigger("select");
+			}
+			
+			
+			
+		});
+		
+		$(o.elementID+'_afs_end').change(function(){
+			var end = $(this).val();
+			var currentValues = $( o.elementID ).rangeslider("values");
+			
+			if (isNaN(end)){
+				$(this).val(currentValues[1]);
+			} else {
+				start = currentValues[0];
+				$( o.elementID ).rangeslider("values",[start,end]);
+				
+				$("input#rangeSlider_values").val(start+o.rangeDelimiter+end);
+				$("input#rangeSlider_values").trigger("select");
+			}
+			
+			
+			
+		});
+		/*
+		$(o.elementID+'_values').select(function(){
+			console.log($(o.elementID+'_values').val());
+		});
+		*/
+	}
+}
+
+$(function(){
+	$.widget("ui.rangeslider", $.extend({},$.ui.slider.prototype, {
+		
+		options: {
+			animate: false,
+			distance: 0,
+			max: 100,
+			min: 0,
+			orientation: "horizontal",
+			range: false,
+			step: 0,
+			value: 0,
+			values: null,
+			sliderWidth: null,
+
+			// callbacks
+			change: null,
+			slide: null,
+			start: null,
+			stop: null
+		},
+		
+		_sliderWidth: function(){
+			return this.options.sliderWidth;
+		},
+		
+		_init: function(){
+			this.element.data('slider', this.element.data('rangeslider'));
+			//this._setK();
+			return $.ui.slider.prototype._init.apply(this, arguments);
+		},
+		
+		_normValueFromMouse: function( position ) {
+			
+			//console.log(this);
+			var pixelTotal,
+				pixelMouse,
+				percentMouse,
+				valueTotal,
+				valueMouse;
+
+			if ( this.orientation === "horizontal" ) {
+				pixelTotal = this._sliderWidth();
+				pixelMouse = position.x - this.elementOffset.left - ( this._clickOffset ? this._clickOffset.left : 0 );
+			} else {
+				pixelTotal = this.elementSize.height;
+				pixelMouse = position.y - this.elementOffset.top - ( this._clickOffset ? this._clickOffset.top : 0 );
+			}
+			
+			valueTotal = this._valueMax() - this._valueMin();
+			
+			if (pixelTotal < valueTotal){
+				
+				if (pixelMouse > pixelTotal){
+					pixelMouse = pixelTotal;
+				}
+				if (pixelMouse < 0){
+					pixelMouse = 0;
+				}
+				
+				pixelMouseValue = this._trimAlignValue( pixelMouse );
+				E = 1.021;
+				k = valueTotal / (Math.pow(E,pixelTotal) - 1);
+				value = k*(Math.pow(E,pixelMouseValue)-1);
+				
+				return this._trimAlignValue( value );
+				
+			} else {
+				
+				percentMouse = ( pixelMouse / pixelTotal );
+				if ( percentMouse > 1 ) {
+					percentMouse = 1;
+				}
+				if ( percentMouse < 0 ) {
+					percentMouse = 0;
+				}
+				if ( this.orientation === "vertical" ) {
+					percentMouse = 1 - percentMouse;
+				}
+				
+				valueMouse = this._valueMin() + percentMouse * valueTotal;
+				
+				return this._trimAlignValue( valueMouse );
+			}
+			
+			
+		},
+		
+		_refreshValue: function() {
+			
+			var lastValPercent, valPercent, value, valueMin, valueMax,
+				lastValPixel, valPixel, valueTotal, pixelTotal,
+				oRange = this.options.range,
+				o = this.options,
+				that = this,
+				animate = ( !this._animateOff ) ? o.animate : false,
+				E = 1.021,
+				_set = {};
+
+			if ( this.options.values && this.options.values.length ) {
+				
+				this.handles.each(function( i ) {
+					
+					valPercent = ( that.values(i) - that._valueMin() ) / ( that._valueMax() - that._valueMin() ) * 100;
+					
+					valueTotal = that._valueMax() - that._valueMin();
+					pixelTotal = that._sliderWidth();
+					
+					if (pixelTotal < valueTotal ){
+						
+						k = valueTotal / (Math.pow(E,pixelTotal) - 1);
+						
+						x = (Math.log(that.values(i)/k + 1) / Math.log(10)) / (Math.log(E) / Math.log(10));
+						valPixel = Math.round(x); 
+						
+						
+						_set[ that.orientation === "horizontal" ? "left" : "bottom" ] = valPixel + "px";
+						$( this ).stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+						
+						if ( that.options.range === true ) {
+							
+							if ( that.orientation === "horizontal" ) {
+								if ( i === 0 ) {
+									that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { left: valPixel + "px" }, o.animate );
+								}
+								if ( i === 1 ) {
+									that.range[ animate ? "animate" : "css" ]( { width: ( valPixel - lastValPixel ) + "px" }, { queue: false, duration: o.animate } );
+								}
+							} else {
+								if ( i === 0 ) {
+									that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { bottom: ( valPixel ) + "px" }, o.animate );
+								}
+								if ( i === 1 ) {
+									that.range[ animate ? "animate" : "css" ]( { height: ( valPixel - lastValPixel ) + "px" }, { queue: false, duration: o.animate } );
+								}
+							}
+						}
+						
+						//lastValPercent = valPercent;
+						lastValPixel = valPixel;
+					} else {
+						valPixel = Math.round((valPercent*pixelTotal) / 100);
+						_set[ that.orientation === "horizontal" ? "left" : "bottom" ] = valPixel + "px";
+						$( this ).stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+						if ( that.options.range === true ) {
+							if ( that.orientation === "horizontal" ) {
+								if ( i === 0 ) {
+									that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { left: valPixel + "px" }, o.animate );
+								}
+								if ( i === 1 ) {
+									that.range[ animate ? "animate" : "css" ]( { width: ( valPixel - lastValPixel ) + "px" }, { queue: false, duration: o.animate } );
+								}
+							} else {
+								if ( i === 0 ) {
+									that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { bottom: ( valPixel ) + "px" }, o.animate );
+								}
+								if ( i === 1 ) {
+									that.range[ animate ? "animate" : "css" ]( { height: ( valPixel - lastValPixel ) + "px" }, { queue: false, duration: o.animate } );
+								}
+							}
+						}
+						//lastValPercent = valPercent;
+						lastValPixel = valPixel;
+						
+					}
+					
+				});
+			} else {
+				console.log('noValue');
+				value = this.value();
+				valueMin = this._valueMin();
+				valueMax = this._valueMax();
+				valPercent = ( valueMax !== valueMin ) ?
+						( value - valueMin ) / ( valueMax - valueMin ) * 100 :
+						0;
+				_set[ this.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
+				this.handle.stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+
+				if ( oRange === "min" && this.orientation === "horizontal" ) {
+					this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { width: valPercent + "%" }, o.animate );
+				}
+				if ( oRange === "max" && this.orientation === "horizontal" ) {
+					this.range[ animate ? "animate" : "css" ]( { width: ( 100 - valPercent ) + "%" }, { queue: false, duration: o.animate } );
+				}
+				if ( oRange === "min" && this.orientation === "vertical" ) {
+					this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( { height: valPercent + "%" }, o.animate );
+				}
+				if ( oRange === "max" && this.orientation === "vertical" ) {
+					this.range[ animate ? "animate" : "css" ]( { height: ( 100 - valPercent ) + "%" }, { queue: false, duration: o.animate } );
+				}
+			}
+		}
+		
+	}));
+});
