@@ -13,9 +13,9 @@ Vsi programi so napisani v Python 3.7.
 5.) Za izvedbo algoritma nad bolha.com stranmi kliči: "test_runner.py ../input/ps4_bolhax.html ../input/xbox_bolhax.html"  
 
 # Navodila za uporabo ekstrakcije z XPath:
-0.) Namesti lxml
-1.) Premakni se v direktorij "implementation"
-2.) Kliči "python test_runner.py [ over1 | over2 | rtv1 | rtv2 | other1 | other2 ]"
+0.) Namesti lxml  
+1.) Premakni se v direktorij "implementation"  
+2.) Kliči "python test_runner.py [ over1 | over2 | rtv1 | rtv2 | other1 | other2 ]"  
 
 # Navodila za uporabo Regex funkcije:
 0.) Namesti knjiznico re, sys in json (če še niso) 
