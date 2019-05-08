@@ -101,15 +101,12 @@ class Html2Json:
 
 if __name__ == '__main__':
     args = sys.argv
-    """if len(args) != 3:
+    if len(args) != 3:
         print("Two arguments need to be passed: site type and path to html file!")
         print("Example: rege2json rtv './files/sth.html'")
         exit(41)
     site_type = args[1]
-    html_path = args[2]"""
+    html_path = args[2]
     h2j = Html2Json()
 
-    #testing
-    site_type="other"
-    html_path = "/Users/jonskoberne/PycharmProjects/ieps_seminarska2/WebPages/bolha.com/xbox_bolha.html"
-    result_json = h2j.html2json(site_type, html_path)
+    h2j.html2json(site_type, html_path)
