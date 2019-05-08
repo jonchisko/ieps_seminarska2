@@ -37,7 +37,7 @@ def parseOverstock(filename):
                                 'Price': prices[i],
                                 'Saving': absoluteSavings[i],
                                 'SavingPercent': relativeSavings[i],
-                                'Content': contents[i]})
+                                'Content': contents[i].replace('\r', '')})
     result = json.dumps(result, indent=4)
     # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
@@ -55,7 +55,8 @@ def parseRTV(filename):
 
     date = page.xpath('//*[@id="main-container"]/div[3]/div/div[1]/div[2]/text()[1]')[0].\
                 replace('\n', '').\
-                replace('\t', '')
+                replace('\t', '').\
+                replace('\r', '')
     result['Article']['PublishedTime'] = date
 
     title = page.xpath('//*[@id="main-container"]/div[3]/div/header/h1/text()')[0]
@@ -135,4 +136,3 @@ if __name__ == '__main__':
         parseBolha('../input/ps4_bolha.html')
     else:
         print('Invalid argument. Look at the code.')
-
