@@ -15,4 +15,14 @@ Vsi programi so napisani v Python 3.7.
 # Navodila za uporabo ekstrakcije z XPath:
 0.) Namesti lxml
 1.) Premakni se v direktorij "implementation"
-2.) Kliči "python test_runner.py arg" kjer je arg eden od (overstock1, overstock2, rtv1, rtv2, bolha1, bolha2)
+2.) Kliči "python test_runner.py [ over1 | over2 | rtv1 | rtv2 | other1 | other2 ]"
+
+# Navodila za uporabo Regex funkcije:
+0.) Namesti knjiznico re, sys in json (če še niso) 
+1.) Prenesi repozitorij  
+2.) Premakni se v direktorij "implementation"  
+3.) Za izvedbo algoritma nad rtvslo.si stranmi kliči: "rege2json.py rtv ../input/audi.html"  
+4.) Za izvedbo algoritma nad overstock.com stranmi kliči: "rege2json.py over ../input/jewelry01.html"  
+5.) Za izvedbo algoritma nad bolha.com stranmi kliči: "rege2json.py other ../input/xbox_bolha.html"  
+6.) V bistvu v splošnem se algoritem kliče tako: rege2json.py [rtv|over|other] file_path
+
