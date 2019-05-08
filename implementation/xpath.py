@@ -122,17 +122,17 @@ if __name__ == '__main__':
         print('Invalid number of arguments.')
 
     elif sys.argv[1] == 'over1':
-        parseOverstock('../WebPages/overstock.com/jewelry01.html')
+        parseOverstock('../input/jewelry01.html')
     elif sys.argv[1] == 'over2':
-        parseOverstock('../WebPages/overstock.com/jewelry02.html')
+        parseOverstock('../input/jewelry02.html')
     elif sys.argv[1] == 'rtv1':
-        parseRTV('../WebPages/rtvslo.si/Audi A6 50 TDI quattro_ nemir v premijskem razredu - RTVSLO.si.html')
+        parseRTV('../input/audi.html')
     elif sys.argv[1] == 'rtv2':
-        parseRTV('../WebPages/rtvslo.si/Volvo XC 40 D4 AWD momentum_ suvereno med najboljse v razredu - RTVSLO.si.html')
+        parseRTV('../input/volvo.html')
     elif sys.argv[1] == 'other1':
-        parseBolha('../WebPages/bolha.com/ps4_bolha.html')
+        parseBolha('../input/xbox_bolha.html')
     elif sys.argv[1] == 'other2':
-        parseBolha('../WebPages/bolha.com/xbox_bolha.html')
+        parseBolha('../input/ps4_bolha.html')
     else:
         print('Invalid argument. Look at the code.')
 
